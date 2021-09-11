@@ -33,8 +33,6 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 stock = st.sidebar.text_input(label="Ticker",value='AAPL')
 
-
-
 @st.cache(allow_output_mutation=True, show_spinner=False)
 def get_data(start):
     ticker = yf.Ticker(stock)
@@ -43,11 +41,6 @@ def get_data(start):
     except:
         pass
     return df
-
-
-
-
-
 
 list_of_indicator_types = ['Volume', 'Trend']
 volumn_types = ['Volume','Force Index']
@@ -62,8 +55,6 @@ if indicator_types == 'Volume':
 
     start = st.text_input(label='Start Year', value = '2018')
     start = f'{start}-01-01'
-
-    
 
     df = get_data(start)
     df = df.reset_index()
